@@ -1,4 +1,4 @@
-class CreateSyncedSelections < ActiveRecord::Migration
+class CreateSyncedSelections < ActiveRecord::Migration[7.0]
   def change
     create_table :selection_syncs do |t|
       t.references :topic, index: true

@@ -1,4 +1,4 @@
-class CreateInstitutionSemesters < ActiveRecord::Migration
+class CreateInstitutionSemesters < ActiveRecord::Migration[7.0]
   def change
     create_table :institution_semesters do |t|
       t.references :institution, index: true

@@ -1,4 +1,4 @@
-class UniCode < ActiveRecord::Migration
+class UniCode < ActiveRecord::Migration[7.0]
   def change
     add_column :institutions, :code, :string, :limit => 10, :unique => true
 

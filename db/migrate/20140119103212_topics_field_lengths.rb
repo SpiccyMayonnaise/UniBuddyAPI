@@ -1,4 +1,4 @@
-class TopicsFieldLengths < ActiveRecord::Migration
+class TopicsFieldLengths < ActiveRecord::Migration[7.0]
   def change
     change_column :topics, :subject_area, :string, :limit => 10
     change_column :topics, :semester, :string, :limit => 5

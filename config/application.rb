@@ -1,12 +1,15 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require "sprockets/railtie"
 
 Bundler.require(:default, Rails.env)
 
 module FlindersAPI2
   class Application < Rails::Application
     config.encoding = "utf-8"
+
+    config.active_record.legacy_connection_handling = false
 
     config.filter_parameters += [:password]
 

@@ -1,4 +1,4 @@
-class CreateClassTypes < ActiveRecord::Migration
+class CreateClassTypes < ActiveRecord::Migration[7.0]
   def change
     create_table :class_types do |t|
       t.references :topic, index: true

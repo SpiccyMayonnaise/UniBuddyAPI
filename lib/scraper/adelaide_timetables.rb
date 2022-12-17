@@ -13,7 +13,7 @@ module Scraper
     def scrape_timetables_from_url url,year,program_area
       page = @agent.get url
       form = get_timetable_form page,year
-      
+        
       subject_area_widget = form.field_with(:name => 'subject')
       form.field_with(:name => 'year').value = @year
       subject_area_widget.options.from(1).each do |entry|
@@ -263,6 +263,7 @@ module Scraper
               end
 
               classNumber = cells[0].text.squish
+              section = cells[1].text.squish
               totalPlacesAvailable = cells[2].text.squish
               placesLeft = cells[3].text.squish
               full = (placesLeft.include?("FULL"))
@@ -278,7 +279,8 @@ module Scraper
 
               class_group = ClassGroup.where(
                 :class_type => class_type,
-                  :group_number => groupNumber
+                  :group_number => groupNumber,
+                :section => section,
                   ).first_or_initialize
               Activity.where(:class_group => class_group).delete_all
               class_group.note = placesLeft

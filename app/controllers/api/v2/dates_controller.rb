@@ -8,4 +8,10 @@ class Api::V2::DatesController < Api::V2::BaseController
   def current
     respond_with padded_response TermDates.for_institution(params[:inst_code]).current_week
   end
+
+  def year
+    year = Date.new(params[:year].to_i, 1, 1)
+
+    respond_with padded_response TermDates.for_institution(params[:inst_code]).for_year(year).order("week ASC")
+  end
 end

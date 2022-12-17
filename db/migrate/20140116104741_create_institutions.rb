@@ -1,4 +1,4 @@
-class CreateInstitutions < ActiveRecord::Migration
+class CreateInstitutions < ActiveRecord::Migration[7.0]
   def change
     create_table :institutions do |t|
       t.string :name, :limit => 50

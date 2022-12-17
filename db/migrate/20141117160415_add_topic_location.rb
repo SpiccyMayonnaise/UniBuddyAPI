@@ -1,4 +1,4 @@
-class AddTopicLocation < ActiveRecord::Migration
+class AddTopicLocation < ActiveRecord::Migration[7.0]
   def change
   	add_column :topics, :location, :string
   end

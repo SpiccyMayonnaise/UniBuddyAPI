@@ -19,6 +19,9 @@ namespace :adelaide_timetables do
     end
 
     @logger.info 'Scraping timetables for %s (program area: %s)' % [args.year || 'latest year', args.program_area || 'all program areas']
+
+    OpenSSL::SSL::SSLContext::DEFAULT_PARAMS[:options] |= OpenSSL::SSL::OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION
+
     @agent = Mechanize.new
 
     scrape_timetables_from_url "https://cp.adelaide.edu.au/courses/search.asp", args.year, args.program_area
