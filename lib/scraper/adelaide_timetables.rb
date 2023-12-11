@@ -280,7 +280,7 @@ module Scraper
               class_group = ClassGroup.where(
                 :class_type => class_type,
                   :group_number => groupNumber,
-                :section => section,
+                # :section => section,
                   ).first_or_initialize
               Activity.where(:class_group => class_group).delete_all
               class_group.note = placesLeft

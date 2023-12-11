@@ -3,7 +3,7 @@ class Institution < BaseModel
 
   has_many :institution_semesters, :dependent => :destroy
 
-  def as_json(options = {})
+  def as_json(_options = {})
     to_h
   end
 
@@ -35,7 +35,7 @@ class Institution < BaseModel
     InstitutionSemester.where(:institution_id => id).order('sort_order ASC, name ASC').each do |is|
       year = years_h[is.year]
 
-      if (year.nil?)
+      if year.nil?
         year = []
 
         years_h[is.year] = year
@@ -44,7 +44,7 @@ class Institution < BaseModel
       year.push({ :code => is.code, :name => is.name })
     end
 
-    return years_h
+    years_h
   end
 
 

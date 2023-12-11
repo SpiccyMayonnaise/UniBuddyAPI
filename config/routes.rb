@@ -18,7 +18,7 @@ FlindersAPI2::Application.routes.draw do
 
       get "/uni/:inst_code/dates" => "dates#index"
       get "/uni/:inst_code/dates/current" => "dates#current"
-      get "/uni/:inst_code/dates/:year" => "dates#year"
+      get "/uni/:inst_code/dates/:year/:semester" => "dates#year"
 
       get "/uni/:inst_code/weeks" => "dates#index"
       get "/uni/:inst_code/weeks/current" => "dates#current"

@@ -13,6 +13,10 @@ class TermDates < BaseModel
     def for_year (year = Date.today)
       TermDates.where("starts_at BETWEEN ? AND ?", year.at_beginning_of_year, year.at_end_of_year) or ""
     end
+
+    def for_semester (semester = "S1")
+      TermDates.where(:semester => semester)
+    end
   end
 
   def as_json(options = {})
